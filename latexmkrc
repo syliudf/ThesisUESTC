@@ -10,13 +10,14 @@ add_cus_dep('acn', 'acr', 0, 'run_makeglossaries');
 
 sub run_makeglossaries {
   if ( $silent ) {
-    system "makeglossaries -q '$_[0]'";
+    system "makeglossaries -q $_[0]";
   }
   else {
-    system "makeglossaries '$_[0]'";
+    system "makeglossaries $_[0]";
   };
 }
 
 push @generated_exts, 'glo', 'gls', 'glg';
 push @generated_exts, 'acn', 'acr', 'alg';
+push @generated_exts, 'synctex.gz';
 $clean_ext .= ' %R.ist %R.xdv';
